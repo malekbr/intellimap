@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $.ajax({
         type: "GET",
-        url: "http://web.mit.edu/uayyaz/www/final_output.txt",
+        url: "data/final_output.csv",
         dataType: "text",
         success: function(data) {processData(data,1);}
      });
@@ -10,7 +10,7 @@ $(document).ready(function() {
 function loadFile(time){
     $.ajax({
         type: "GET",
-        url: "http://web.mit.edu/uayyaz/www/final_output.csv",
+        url: "data/final_output.csv",
         dataType: "text",
         success: function(data) {processData(data,time);}
      });
