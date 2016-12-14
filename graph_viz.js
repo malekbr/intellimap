@@ -43,15 +43,15 @@ function processData(allText,time) {
     //Adding a tweet on initialization
     var tweet_box = document.getElementById('twitter_id');
     console.log(twids.length)
-   $.ajax({
-       type: "GET",
-       data: {
-           url: "https://twitter.com/malekbr/status/"+565619773976104960
-       },
-       url: "https://publish.twitter.com/oembed",
-       dataType: "json",
-       success: function(data) {tweet_box.innerHTML = data.html;}
-    });
+   // $.ajax({
+   //     type: "GET",
+   //     data: {
+   //         url: "https://twitter.com/malekbr/status/"+565619773976104960
+   //     },
+   //     url: "https://publish.twitter.com/oembed",
+   //     dataType: "jsonp",
+   //     success: function(data) {tweet_box.innerHTML = data.html;}
+   //  });
 
     updateGraph(lines, twids);
 }
@@ -92,7 +92,7 @@ function updateGraph(lines, twids){
                        url: "https://twitter.com/malekbr/status/"+twids[index]
                    },
                    url: "https://publish.twitter.com/oembed",
-                   dataType: "json",
+                   dataType: "jsonp",
                    success: function(data) {tweet_box.innerHTML = data.html;
                    console.log(data.html)}
 
