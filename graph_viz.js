@@ -1,11 +1,11 @@
-// $(document).ready(function() {
-//     $.ajax({
-//         type: "GET",
-//         url: "http://web.mit.edu/uayyaz/www/final_output.txt",
-//         dataType: "text",
-//         success: function(data) {processData(data);}
-//      });
-// });
+$(document).ready(function() {
+    $.ajax({
+        type: "GET",
+        url: "http://web.mit.edu/uayyaz/www/final_output.txt",
+        dataType: "text",
+        success: function(data) {processData(data,1);}
+     });
+});
 
 function loadFile(time){
     $.ajax({
@@ -18,25 +18,20 @@ function loadFile(time){
 
 function processData(allText,time) {
     var allTextLines = allText.split('\n');
-    lines = allTextLines.length
-    // var headers = allTextLines[0].split('\t');
     var lines = [];
     var twids = [];
     graph = {}
-    count = 0
-    for (var i=1; i<allTextLines.length/time; i++) {
+    for (var i=1; i<time*300; i++) {
         var data = allTextLines[i].split('\t');
-        if(data[3]!= ""){
-            count+=1
+        if(data[3]!= "" && data[2]!= "irrelevant"){
             var size;
-            if(data[2]=="bombing"){
+            if(data[2] == "bombing"){
+                size = 1 
+            }
+            else if(data[2]=="takeover"){
                 size = 2
             }
-
-            if(data[2]=="takeover"){
-                size = 3
-            }
-            else{
+            else if(data[2]=="clash"){
                 size = 0
             }
             var randomness = 0.0000//1;
@@ -44,10 +39,23 @@ function processData(allText,time) {
             twids.push(data[0]);
         }
     }
-    console.log(count)
-    updateGraph(lines, twids);
 
+    //Adding a tweet on initialization
+    var tweet_box = document.getElementById('twitter_id');
+    console.log(twids.length)
+   $.ajax({
+       type: "GET",
+       data: {
+           url: "https://twitter.com/malekbr/status/"+565619773976104960
+       },
+       url: "https://publish.twitter.com/oembed",
+       dataType: "json",
+       success: function(data) {tweet_box.innerHTML = data.html;}
+    });
+
+    updateGraph(lines, twids);
 }
+
 
 
 function updateGraph(lines, twids){
@@ -85,7 +93,9 @@ function updateGraph(lines, twids){
                    },
                    url: "https://publish.twitter.com/oembed",
                    dataType: "json",
-                   success: function(data) {tweet_box.innerHTML = data.html;}
+                   success: function(data) {tweet_box.innerHTML = data.html;
+                   console.log(data.html)}
+
                 });
           }
       });
@@ -95,7 +105,7 @@ function updateGraph(lines, twids){
 
 
 
-loadFile(1)
+// loadFile(1)
 
 
 

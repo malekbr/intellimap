@@ -3,6 +3,10 @@
 Primary style
 
 -------------------------------- */
+*, html {
+    margin:0;
+    padding:0;  
+}
 *, *::after, *::before {
   box-sizing: border-box;
 }
@@ -48,7 +52,7 @@ Main Components
   position: relative;
   height: 100px;
   width: 90%;
-  max-width: 800px;
+  max-width: 1800px;
   margin: 0 auto;
 }
 .cd-horizontal-timeline .events-wrapper {

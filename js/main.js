@@ -40,8 +40,10 @@ jQuery(document).ready(function($){
 				event.preventDefault();
 				timelineComponents['timelineEvents'].removeClass('selected');
 				$(this).addClass('selected');
-				console.log($(this).context.innerHTML)
-				
+				dates = {"Sep 2014":1, "Feb 2015":2, "Oct 2015":3, "Feb 2016":4, "Apr 2016":5, "Jul 2016":6, "Sep 2016":7, "Oct 2016":8, "Nov 2016":10}
+				a = $(this).context.innerHTML
+				loadFile(dates[a])
+
 				updateOlderEvents($(this));
 				updateFilling($(this), timelineComponents['fillingLine'], timelineTotWidth);
 				updateVisibleContent($(this), timelineComponents['eventsContent']);
@@ -133,7 +135,7 @@ jQuery(document).ready(function($){
 		for (i = 0; i < timelineComponents['timelineDates'].length; i++) { 
 		    var distance = daydiff(timelineComponents['timelineDates'][0], timelineComponents['timelineDates'][i]),
 		    	distanceNorm = Math.round(distance/timelineComponents['eventsMinLapse']) + 2;
-		    timelineComponents['timelineEvents'].eq(i).css('left', distanceNorm*min+'px');
+		    timelineComponents['timelineEvents'].eq(i).css('left', (distanceNorm*min)+'px');
 		}
 	}
 

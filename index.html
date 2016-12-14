@@ -9,26 +9,65 @@
 	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
 	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
 	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Playfair+Display:700,900|Fira+Sans:400,400italic' rel='stylesheet' type='text/css'>
+  <script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
+    <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"rel = "stylesheet">
+  <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+	<script src="https://code.highcharts.com/modules/exporting.js"></script>
   	
-	<title>Horizontal Timeline | CodyHouse</title>
+	<title>IntelliMap</title>
 </head>
 <body>
+	   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><b>IntelliMap</b></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">An Intelligent Map of Syrian Crisis which extracts relevant factions and locations for every event reported on Twitter </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
 <section class="cd-horizontal-timeline">
 	<div class="timeline">
 		<div class="events-wrapper">
 			<div class="events">
 				<ol>
-					<li><a href="#0" data-date="16/01/2014" class="selected">16 Jan</a></li>
-					<li><a href="#0" data-date="28/02/2014">28 Feb</a></li>
-					<li><a href="#0" data-date="20/04/2014">20 Mar</a></li>
-					<li><a href="#0" data-date="20/05/2014">20 May</a></li>
-					<li><a href="#0" data-date="09/07/2014">09 Jul</a></li>
-					<li><a href="#0" data-date="30/08/2014">30 Aug</a></li>
-					<li><a href="#0" data-date="15/09/2014">15 Sep</a></li>
-					<li><a href="#0" data-date="01/11/2014">01 Nov</a></li>
-					<li><a href="#0" data-date="10/12/2014">10 Dec</a></li>
-					<li><a href="#0" data-date="19/01/2015">29 Jan</a></li>
-					<li><a href="#0" data-date="03/03/2015">3 Mar</a></li>
+					<!-- <li><a href="#0" data-date="02/06/2012" class="selected">Jun 2012</a></li> -->
+					<li><a href="#0" data-date="02/09/2014" class="selected">Sep 2014</a></li>
+					<li><a href="#0" data-date="20/02/2015" value="1">Feb 2015</a></li>
+					<li><a href="#0" data-date="20/10/2015">Oct 2015</a></li>
+					<li><a href="#0" data-date="20/02/2016">Feb 2016</a></li>
+					<li><a href="#0" data-date="09/04/2016">Apr 2016</a></li>
+					<li><a href="#0" data-date="30/07/2016">Jul 2016</a></li>
+					<li><a href="#0" data-date="15/09/2016">Sep 2016</a></li>
+					<li><a href="#0" data-date="01/10/2016">Oct 2016</a></li>
+					<li><a href="#0" data-date="03/11/2016">Nov 2016</a></li>
 				</ol>
 
 				<span class="filling-line" aria-hidden="true"></span>
@@ -42,9 +81,31 @@
 	</div> <!-- .timeline -->
 
 </section>
+<section>
+
+  <!-- <div class="container"> -->
+    <div class="row">
+    	<div class="col-md-4">
+    		<div id="container_pi" style="min-width: 400px; height: 250px; max-width: 450px; margin: 0 auto; position:relative; top:-60px"></div>
+    		      	<div id="container_pi2" style="min-width: 400px; height: 250px; max-width: 450px; margin: 0 auto; position:relative; top:-60px"></div>
+      </div>
+      <div class="col-md-8">
+          <div id="chart_div" style="width: 750px; height: 400px; margin:0 auto; position:relative; top:-80px;"></div>
+          <div id="twitter_id"></div>
+      </div>
+     <!--  <div class="col-md-3">
+      </div> -->
+    </div>
+  <!-- </div> -->
+</section>
+
+
 	
 <script src="js/jquery-2.1.4.js"></script>
 <script src="js/jquery.mobile.custom.min.js"></script>
-<script src="js/main.js"></script> <!-- Resource jQuery -->
+<script src="js/main.js"></script>
+<script src="graph_viz.js"></script>
+<script src="js/pi.js"></script>
+ <!-- Resource jQuery -->
 </body>
 </html>
